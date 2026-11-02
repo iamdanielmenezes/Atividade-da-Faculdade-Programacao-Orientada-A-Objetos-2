@@ -1,24 +1,50 @@
 package app;
 
+import java.util.Scanner;
+
 import entities.Aluno;
 import entities.Curso;
 import entities.Professor;
-import entities.Turma;
 
 public class Program {
 
 	public static void main(String[] args) {
+	
+		Scanner sc = new Scanner(System.in);
+		Curso curso = new Curso();
+		Aluno aluno = new Aluno();
+		Professor professor = new Professor();
+		int relatorio;
 		
-		Aluno aluno1 = new Aluno("Daniel", 123, "Java");
-		Aluno aluno2 = new Aluno("Maria", 321, "Java");
+	do {
+		System.out.println();
+		System.out.println("---- RELATÓRIOS ----");
+		System.out.println("\n1 - Relatório de Cursos"
+				+ "\n2 - Relatório de Alunos"
+				+ "\n3 - Relatório de Professores"
+				+ "\n4 - Encerrar");
 		
-		Professor professor = new Professor("João", "Backend", 456);
-		Curso curso = new Curso("Java", 789, "58 horas");
+		System.out.print("\nEscolha uma opção: ");
+		relatorio = sc.nextInt();
 		
-		Turma turma = new Turma(001, professor, curso);
-		turma.adicionarAluno(aluno1);
-		turma.adicionarAluno(aluno2);
+		if (relatorio == 1) {
+	        System.out.println(curso.gerarRelatorio());
 
-		System.out.println(turma);
+	    } else if (relatorio == 2) {
+	        System.out.println(aluno.gerarRelatorio());
+
+	    } else if (relatorio == 3) {
+	        System.out.println(professor.gerarRelatorio());
+
+	    } else if (relatorio == 4) {
+	        System.out.println("Encerrando o programa...");
+
+	    } else {
+	        System.out.println("Opção inválida!");
+	    }
+
+	} while (relatorio != 4);
+		 
+		sc.close();
 	}
 }

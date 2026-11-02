@@ -35,13 +35,12 @@ public class Professor extends Usuario implements Autenticacao {
 		this.registro = registro;
 	}
 	
-	@Override
-	public String toString() {
+	public String gerarRelatorio() {
 		return "Professor - Nome: " + super.getNome() + ", Especialdiade: " + especialidade + ", Registro: " + registro;
 	}
 	
 	 @Override
 	    public boolean autenticar(String login, String senha) {
 	        return validarCredenciais(login, senha);
-	    }
+	}
 }

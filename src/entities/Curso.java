@@ -42,4 +42,8 @@ public class Curso {
 	public String detalharCurso() {
 		return "Curso - Nome: " + nome + ", Código: " + codigo + ", Carga Horaria: " + cargaHoraria;
 	}
+	
+	public String gerarRelatorio() {
+	    return detalharCurso();
+	}
 }

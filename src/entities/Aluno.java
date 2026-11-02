@@ -35,8 +35,7 @@ public class Aluno extends Usuario implements Autenticacao {
 		this.curso = curso;
 	}
 
-	@Override
-	public String toString() {
+	public String gerarRelatorio() {
 		return "Aluno - Nome: " + super.getNome() + ", Matricula: " + matricula + ", Curso: " + curso;
 	}
 
