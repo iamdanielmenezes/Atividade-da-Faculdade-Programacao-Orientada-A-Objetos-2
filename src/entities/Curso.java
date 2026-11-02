@@ -39,8 +39,7 @@ public class Curso {
 		this.cargaHoraria = cargaHoraria;
 	}
 	
-	@Override
-	public String toString() {
+	public String detalharCurso() {
 		return "Curso - Nome: " + nome + ", Código: " + codigo + ", Carga Horaria: " + cargaHoraria;
 	}
 }

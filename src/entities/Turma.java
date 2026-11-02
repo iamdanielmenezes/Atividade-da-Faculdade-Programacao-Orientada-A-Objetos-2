@@ -9,7 +9,8 @@ public class Turma {
 	private Professor professor;
 	private Curso curso;
 	private List<Aluno> listaAlunos;
-	
+	private List<Avaliacao> avaliacao;
+
 	public Turma() {
 	}
 
@@ -18,6 +19,7 @@ public class Turma {
 	    this.professor = professor;
 	    this.curso = curso;
 	    this.listaAlunos = new ArrayList<>();
+	    this.avaliacao = new ArrayList<>();
 	}
 
 	public int getCodigo() {
@@ -62,6 +64,10 @@ public class Turma {
 	
 	public int quantidadeAlunos() {
 	    return listaAlunos.size();
+	}
+	
+	public void adicionarAvaliacao(Avaliacao avaliacao) {
+	    this.avaliacao.add(avaliacao);
 	}
 	
 	@Override
