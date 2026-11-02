@@ -1,27 +1,23 @@
 package entities;
 
-public class Aluno {
-	
-	private String nome;
-	private int matricula;
-	private String curso;
-	
-	public Aluno() {
-	}
+import interfaces.Autenticacao;
 
-	public Aluno(String nome, int matricula, String curso) {
-		this.nome = nome;
-		this.matricula = matricula;
-		this.curso = curso;
-	}
+public class Aluno extends Usuario implements Autenticacao {
 
-	public String getNome() {
-		return nome;
-	}
+    private int matricula;
+    private String curso;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public Aluno() {
+    	super();
+    }
+
+    public Aluno(String nome, String login, String senha, int matricula, String curso) {
+
+        super(nome, login, senha);
+
+        this.matricula = matricula;
+        this.curso = curso;
+    }
 
 	public int getMatricula() {
 		return matricula;
@@ -41,6 +37,11 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Aluno - Nome: " + nome + ", Matricula: " + matricula + ", Curso: " + curso;
+		return "Aluno - Nome: " + super.getNome() + ", Matricula: " + matricula + ", Curso: " + curso;
 	}
+
+	@Override
+    public boolean autenticar(String login, String senha) {
+        return validarCredenciais(login, senha);
+    }
 }

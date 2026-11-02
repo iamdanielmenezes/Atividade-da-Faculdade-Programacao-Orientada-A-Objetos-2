@@ -1,27 +1,23 @@
 package entities;
 
-public class Professor {
-	
-	private String nome;
-	private String especialidade;
-	private int registro;
-	
-	public Professor() {
-	}
+import interfaces.Autenticacao;
 
-	public Professor(String nome, String especialidade, int registro) {
-		this.nome = nome;
-		this.especialidade = especialidade;
-		this.registro = registro;
-	}
+public class Professor extends Usuario implements Autenticacao {
 
-	public String getNome() {
-		return nome;
-	}
+    private String especialidade;
+    private int registro;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public Professor() {
+        super();
+    }
+
+    public Professor(String nome, String login, String senha, String especialidade, int registro) {
+
+        super(nome, login, senha);
+
+        this.especialidade = especialidade;
+        this.registro = registro;
+    }
 
 	public String getEspecialidade() {
 		return especialidade;
@@ -41,6 +37,11 @@ public class Professor {
 	
 	@Override
 	public String toString() {
-		return "Professor - Nome: " + nome + ", Especialdiade: " + especialidade + ", Registro: " + registro;
+		return "Professor - Nome: " + super.getNome() + ", Especialdiade: " + especialidade + ", Registro: " + registro;
 	}
+	
+	 @Override
+	    public boolean autenticar(String login, String senha) {
+	        return validarCredenciais(login, senha);
+	    }
 }
